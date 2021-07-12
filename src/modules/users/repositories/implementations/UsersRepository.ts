@@ -45,7 +45,10 @@ class UsersRepository implements IUsersRepository {
       throw new Error("User not found");
     }
 
-    this.users[findIndexUserInList] = { ...receivedUser, admin: true };
+    this.users[findIndexUserInList] = {
+      ...receivedUser,
+      admin: !receivedUser.admin,
+    };
 
     return this.users[findIndexUserInList];
   }
